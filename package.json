@@ -1,0 +1,19 @@
+{
+  "name": "cse341-project3",
+  "version": "1.0.0",
+  "description": "Project 3 CSE341",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michelleguti17/CSE341-Project3.git"
+  },
+  "author": "Michelle Gutierrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michelleguti17/CSE341-Project3/issues"
+  },
+  "homepage": "https://github.com/michelleguti17/CSE341-Project3#readme"
+}
