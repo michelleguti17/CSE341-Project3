@@ -1,0 +1,35 @@
+### Get all userInfo
+GET https://prject1.onrender.com/userInfo
+
+### Get contact by id
+GET https://prject1.onrender.com/userInfo/6554ed54fc40da38ab849580
+
+
+### Create contact
+POST http://localhost:3001/userInfo HTTP/1.1
+content-type: application/json
+
+{
+ 
+  "name": "Full Name",
+  "username": "test5@",
+  "phone": "12345678",
+  
+}
+
+
+### PUT contact
+PUT http://localhost:3001/userInfo/6554ed54fc40da38ab849580 HTTP/1.1
+content-type: application/json
+
+{
+  
+  "name": "Full Name",
+  "username": "test5@",
+  "phone": "12345678",
+}
+### DELETE contact
+
+
+
+DELETE http://localhost:3001/userInfo/6554ed54fc40da38ab849580 HTTP/1.1

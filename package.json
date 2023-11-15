@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/michelleguti17/CSE341-Project3#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongodb": "^6.2.0"
   }
 }
