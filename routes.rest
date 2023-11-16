@@ -17,11 +17,11 @@ content-type: application/json
 
 
 ### PUT contact
-PUT http://localhost:3001/userinfo/6554ed54fc40da38ab849580 HTTP/1.1
+PUT http://localhost:3001/userinfo/655640bb33a02a298ce7058b HTTP/1.1
 content-type: application/json
 
 {
-  "name": "Full Name",
+  "name": "Juana",
   "username": "test5@",
   "phone": "12345678"
 }
