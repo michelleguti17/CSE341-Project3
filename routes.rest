@@ -1,12 +1,12 @@
-### Get all userInfo
-GET https://project3and4.onrender.com/userInfo
+### Get all userinfo
+GET https://project3and4.onrender.com/userinfo
 
 ### Get contact by id
-GET https://project3and4.onrender.com/userInfo/6554ed54fc40da38ab849580
+GET https://project3and4.onrender.com/userinfo/6554ed54fc40da38ab849580
 
 
 ### Create contact
-POST http://localhost:3001/userInfo HTTP/1.1
+POST http://localhost:3001/userinfo HTTP/1.1
 content-type: application/json
 
 {
@@ -17,7 +17,7 @@ content-type: application/json
 
 
 ### PUT contact
-PUT http://localhost:3001/userInfo/6554ed54fc40da38ab849580 HTTP/1.1
+PUT http://localhost:3001/userinfo/6554ed54fc40da38ab849580 HTTP/1.1
 content-type: application/json
 
 {
@@ -29,4 +29,4 @@ content-type: application/json
 
 
 
-DELETE http://localhost:3001/userInfo/6554ed54fc40da38ab849580 HTTP/1.1
+DELETE http://localhost:3001/userinfo/6554ed54fc40da38ab849580 HTTP/1.1
