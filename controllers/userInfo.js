@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = (req, res) => {
   mongodb
-    .getDb()
+    .getDatabase()
     .db()
     .collection('userInfo')
     .find()
@@ -22,7 +22,7 @@ const getSingle = (req, res) => {
   }
   const userId = new ObjectId(req.params.id);
   mongodb
-    .getDb()
+    .getDatabase()
     .db()
     .collection('userInfo')
     .find({ _id: userId })
@@ -42,7 +42,7 @@ const createUser = async (req, res) => {
     phone: req.body.phone,
     
   };
-  const response = await mongodb.getDb().db().collection('userInfo').insertOne(user);
+  const response = await mongodb.getDatabase().db().collection('userInfo').insertOne(user);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -63,7 +63,7 @@ const updateUser = async (req, res) => {
     
   };
   const response = await mongodb
-    .getDb()
+    .getDatabase()
     .db()
     .collection('userInfo')
     .replaceOne({ _id: userId }, user);
@@ -80,7 +80,7 @@ const deleteUser = async (req, res) => {
     res.status(400).json('Must use a valid user id to delete a user.');
   }
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db().collection('userInfo').remove({ _id: userId }, true);
+  const response = await mongodb.getDatabase().db().collection('userInfo').remove({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
