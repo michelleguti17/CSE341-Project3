@@ -2,7 +2,7 @@
   "name": "cse341-project3",
   "version": "1.0.0",
   "description": "Project 3 CSE341",
-  "main": "node server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
