@@ -10,9 +10,9 @@ POST http://localhost:3001/userInfo HTTP/1.1
 content-type: application/json
 
 {
-  "name": "Full Name",
-  "username": "test5@",
-  "phone": "12345678",
+  "name":"Rosa",
+  "username":"test6@",
+  "phone":"12345698"
 }
 
 
@@ -23,7 +23,7 @@ content-type: application/json
 {
   "name": "Full Name",
   "username": "test5@",
-  "phone": "12345678",
+  "phone": "12345678"
 }
 ### DELETE contact
 
