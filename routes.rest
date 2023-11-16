@@ -1,8 +1,8 @@
 ### Get all userInfo
-GET https://prject1.onrender.com/userInfo
+GET https://project3and4.onrender.com/userInfo
 
 ### Get contact by id
-GET https://prject1.onrender.com/userInfo/6554ed54fc40da38ab849580
+GET https://project3and4.onrender.com/userInfo/6554ed54fc40da38ab849580
 
 
 ### Create contact
