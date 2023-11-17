@@ -44,8 +44,8 @@ const createUser = async (req, res) => {
          email: req.body.email,
     };
     const response = await mongodb.getDatabase().db().collection('userinfo').insertOne(user);
-    if(response.acknowledged > 0){
-        res.status(201).send();
+    if(response.acknowledged){
+        res.status(201).json(response);
     } else {
         res.status(500).json(response.error || "Some error ocurred while creating the user.");
     }
