@@ -16,12 +16,15 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid contact id to find a contact.');
+  }
   //#swagger.tags=['Userinfo']
   try {
       const userId = new ObjectId(req.params.id);
       const result = await mongodb.getDatabase().db().collection('userinfo').find({ _id: userId }).toArray();
      
-      if (!ObjectId.isValid(req.params.id)) {
+      if (err){
         res.status(400).json('Must use a valid contact id to find a contact.');
       }
 
@@ -30,7 +33,7 @@ const getSingle = async (req, res) => {
   } catch (err) {
       res.status(400).json({ message: err.message });
   }
-};
+}; 
 
 
 
