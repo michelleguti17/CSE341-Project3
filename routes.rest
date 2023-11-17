@@ -12,7 +12,7 @@ content-type: application/json
 {
   "name":"Rosa",
   "username":"test6@",
-  "phone":"12345698"
+  "email": "test6@edu.com"
 }
 
 
@@ -23,7 +23,7 @@ content-type: application/json
 {
   "name": "Juana",
   "username": "test5@",
-  "phone": "12345678"
+  "email": "test1@edu.com"
 }
 ### DELETE contact
 

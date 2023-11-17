@@ -4,7 +4,7 @@ const saveUser = (req, res, next) => {
   const validationRule = {
     name: 'required|string',
     username: 'required|string',
-    phone: 'required|string',
+    email: 'required|email',
    
   };
   validator(req.body, validationRule, {}, (err, status) => {

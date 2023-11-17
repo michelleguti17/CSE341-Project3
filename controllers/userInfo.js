@@ -16,15 +16,14 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid contact id to find a contact.');
-  }
+  
   //#swagger.tags=['Userinfo']
   try {
+    
       const userId = new ObjectId(req.params.id);
       const result = await mongodb.getDatabase().db().collection('userinfo').find({ _id: userId }).toArray();
      
-      if (err){
+      if (!result){
         res.status(400).json({message: err.message});
       }
 
@@ -36,16 +35,17 @@ const getSingle = async (req, res) => {
 }; 
 
 
+
 const createUser = async (req, res) => {
         //#swagger.tags=['Userinfo']
     const user ={
          name: req.body.name,
          username: req.body.username,
-         phone: req.body.phone,
+         email: req.body.email,
     };
     const response = await mongodb.getDatabase().db().collection('userinfo').insertOne(user);
     if(response.acknowledged > 0){
-        res.status(204).send();
+        res.status(201).send();
     } else {
         res.status(500).json(response.error || "Some error ocurred while creating the user.");
     }
@@ -60,7 +60,7 @@ const updateUser = async (req, res) => {
     const user ={
          name: req.body.name,
          username: req.body.username,
-         phone: req.body.phone,
+         email: req.body.email,
     };
     const response = await mongodb.getDatabase().db().collection('userinfo').replaceOne({_id: userId}, user);
     if(response.modifiedCount > 0){
