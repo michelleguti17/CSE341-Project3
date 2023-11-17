@@ -20,7 +20,7 @@ const getSingle = async (req, res) => {
 
 try{
   const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDatabase().db().collection('userinfo').find((userId)).toArray().then(result);
+  const result = await mongodb.getDatabase().db().collection('userinfo').find((userId)).toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result[0]);
 } catch (err) {
