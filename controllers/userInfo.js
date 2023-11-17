@@ -17,16 +17,19 @@ const getAll = async (req, res) => {
 
 const getSingle = async (req, res) => {
   //#swagger.tags=['Users']
-const userId = new ObjectId(req.params.id);
+
 try{
-  const result = await mongodb.getDatabase().db().collection('userinfo').find((userId)).toArray().then(userinfo);
+  const userId = new ObjectId(req.params.id);
+  const result = await mongodb.getDatabase().db().collection('userinfo').find((userId)).toArray().then(result);
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(userinfo[0]);
+    res.status(200).json(result[0]);
 } catch (err) {
   res.status(400).json({ message: err.message });
 }
 
 };
+
+
 
 /* const getSingle = async (req, res) => {
         //#swagger.tags=['Userinfo']
