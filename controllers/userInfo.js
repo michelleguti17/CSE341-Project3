@@ -15,8 +15,20 @@ const getAll = async (req, res) => {
   }
 };
 
-
 const getSingle = async (req, res) => {
+  //#swagger.tags=['Users']
+const userId = new ObjectId(req.params.id);
+try{
+  const result = await mongodb.getDatabase().db().collection('userinfo').find((userId)).toArray().then(userinfo);
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(userinfo[0]);
+} catch (err) {
+  res.status(400).json({ message: err.message });
+}
+
+};
+
+/* const getSingle = async (req, res) => {
         //#swagger.tags=['Userinfo']
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db().collection('userinfo').find((userId)).toArray((err, result) => {
@@ -27,7 +39,7 @@ const getSingle = async (req, res) => {
            res.status(200).json(result[0]);
         });
 }; 
-
+ */
 const createUser = async (req, res) => {
         //#swagger.tags=['Userinfo']
     const user ={
