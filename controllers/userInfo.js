@@ -25,30 +25,17 @@ const getSingle = async (req, res) => {
       const result = await mongodb.getDatabase().db().collection('userinfo').find({ _id: userId }).toArray();
      
       if (err){
-        res.status(400).json('Must use a valid contact id to find a contact.');
+        res.status(400).json({message: err.message});
       }
 
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(result[0]);
   } catch (err) {
-      res.status(400).json({ message: err.message });
+      res.status(400).json('Must use a valid contact id to find a contact.');
   }
 }; 
 
 
-
-/* const getSingle = async (req, res) => {
-        //#swagger.tags=['Userinfo']
-    const userId = new ObjectId(req.params.id);
-    const result = await mongodb.getDatabase().db().collection('userinfo').find((userId)).toArray((err, result) => {
-        if (err) {
-            res.status(400).json({ message: err });
-          }
-           res.setHeader('Content-Type', 'application/json');
-           res.status(200).json(result[0]);
-        });
-}; 
- */
 const createUser = async (req, res) => {
         //#swagger.tags=['Userinfo']
     const user ={
