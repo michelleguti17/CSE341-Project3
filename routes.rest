@@ -44,3 +44,59 @@ content-type: application/json
 
 
 DELETE http://localhost:3001/userinfo/6554ed54fc40da38ab849580 HTTP/1.1
+
+
+###EVENTS###
+
+##GET EVENTS
+GET http://localhost:3001/events HTTP/1.1
+
+### Get Event by id
+GET https://project3and4.onrender.com/events/655e13ed39627812175d7ef2 
+
+
+### Create event
+POST http://localhost:3001/events HTTP/1.1
+content-type: application/json
+{
+   "eventName": "Monthly Conference",
+  "date": {
+    "$date": "2023-11-22T00:00:00.000Z"
+  },
+  "time": {
+    "$timestamp": {
+      "t": 1700664304,
+      "t": 1700664304,
+      "i": 7
+    }
+  },
+  "location": "Meeting Room",
+  "organizer": "Maria ",
+  "description": "Monthly all-staff meeting.",
+  "attendeesLimit": 40
+}
+
+###UPDATE EVENT
+
+PUT  http://localhost:3001/events/655e13ed39627812175d7ef2  HTTP/1.1
+content-type: application/json
+{
+   "eventName": "Monthly Conference",
+  "date": {
+    "$date": "2023-11-22T00:00:00.000Z"
+  },
+  "time": {
+    "$timestamp": {
+      "t": 1700664304,
+      "t": 1700664304,
+      "i": 7
+    }
+  },
+  "location": "Meeting Room",
+  "organizer": "Maria ",
+  "description": "Monthly all-staff meeting.",
+  "attendeesLimit": 40
+}
+
+##DELETE EVENT
+DELETE http://localhost:3001/events/655e13ed39627812175d7ef2  HTTP/1.1
