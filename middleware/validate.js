@@ -10,6 +10,8 @@ const saveUser = (req, res, next) => {
     eventID: 'required|string',
    
   };
+ 
+  
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
       res.status(412).send({
@@ -23,6 +25,31 @@ const saveUser = (req, res, next) => {
   });
 };
 
+const saveEvent = (req, res, next) => {
+  const validationRule = {
+    eventName: 'required|string',
+    date: 'required|string', // You might need a specific format for date
+    time: 'required|string',
+    location: 'required|string',
+    organizer: 'required|string',
+    description: 'required|string',
+    attendeesLimit: 'required|integer',
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed for event',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
 module.exports = {
-  saveUser
+  saveUser,
+  saveEvent
 };
