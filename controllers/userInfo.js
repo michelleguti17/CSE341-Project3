@@ -41,7 +41,14 @@ const createUser = async (req, res) => {
     const user ={
          name: req.body.name,
          username: req.body.username,
-         email: req.body.email,
+         contact: {
+            email: req.body.email,
+            phone: req.body.phone,
+        },
+        meetingStatus: req.body. meetingStatus,
+        eventID: {
+            "$oid": req.body.eventID, 
+        },
     };
     const response = await mongodb.getDatabase().db().collection('userinfo').insertOne(user);
     if(response.acknowledged){
@@ -60,7 +67,14 @@ const updateUser = async (req, res) => {
     const user ={
          name: req.body.name,
          username: req.body.username,
-         email: req.body.email,
+         contact: {
+            email: req.body.email,
+            phone: req.body.phone,
+        },
+        meetingStatus: req.body. meetingStatus,
+        eventID: {
+            "$oid": req.body.eventID, 
+        },
     };
     const response = await mongodb.getDatabase().db().collection('userinfo').replaceOne({_id: userId}, user);
     if(response.modifiedCount > 0){

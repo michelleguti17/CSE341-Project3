@@ -1,31 +1,45 @@
 ### Get all userinfo
 GET https://project3and4.onrender.com/userinfo
 
-### Get contact by id
+### Get user by id
 GET https://project3and4.onrender.com/userinfo/6554ed54fc40da38ab849581
 
 
-### Create contact
+### Create user
 POST http://localhost:3001/userinfo HTTP/1.1
 content-type: application/json
 
 {
-  "name":"Rosa",
-  "username":"test6@",
-  "email": "test6@edu.com"
+  "name": "Maria Smith",
+  "username": "test1@",
+  "contact": {
+    "email": "test8@edu.com",
+    "phone": "0123456"
+  },
+  "meetingStatus": "Attending",
+  "eventID": {
+    "$oid": "655e13ed39627812175d7ef2"
+  }
 }
 
 
-### PUT contact
+### PUT user
 PUT http://localhost:3001/userinfo/655640bb33a02a298ce7058b HTTP/1.1
 content-type: application/json
 
 {
-  "name": "Juana",
-  "username": "test5@",
-  "email": "test1@edu.com"
+  "name": "Maria Smith",
+  "username": "test1@",
+  "contact": {
+    "email": "test8@edu.com",
+    "phone": "0123456"
+  },
+  "meetingStatus": "Attending",
+  "eventID": {
+    "$oid": "655e13ed39627812175d7ef2"
+  }
 }
-### DELETE contact
+### DELETE user
 
 
 

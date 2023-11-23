@@ -5,6 +5,9 @@ const saveUser = (req, res, next) => {
     name: 'required|string',
     username: 'required|string',
     email: 'required|email',
+    phone: 'required|string', 
+    meetingStatus: 'required|string',
+    eventID: 'required|string',
    
   };
   validator(req.body, validationRule, {}, (err, status) => {
