@@ -8,7 +8,8 @@
   "host": "localhost:3001",
   "basePath": "/",
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "paths": {
     "/": {
@@ -36,6 +37,9 @@
     },
     "/userInfo/": {
       "get": {
+        "tags": [
+          "Userinfo"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -50,6 +54,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Userinfo"
+        ],
         "description": "",
         "parameters": [
           {
@@ -66,6 +73,15 @@
                 },
                 "email": {
                   "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "meetingStatus": {
+                  "example": "any"
+                },
+                "eventID": {
+                  "example": "any"
                 }
               }
             }
@@ -75,6 +91,9 @@
           "201": {
             "description": "Created"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -83,6 +102,9 @@
     },
     "/userInfo/{id}": {
       "get": {
+        "tags": [
+          "Userinfo"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -105,6 +127,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Userinfo"
+        ],
         "description": "",
         "parameters": [
           {
@@ -127,9 +152,46 @@
                 },
                 "email": {
                   "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "meetingStatus": {
+                  "example": "any"
+                },
+                "eventID": {
+                  "example": "any"
                 }
               }
             }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Userinfo"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -143,8 +205,167 @@
             "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/events/": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "events"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "eventName": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                },
+                "time": {
+                  "example": "any"
+                },
+                "location": {
+                  "example": "any"
+                },
+                "organizer": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "attendeesLimit": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/events/{id}": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "events"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "eventName": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                },
+                "time": {
+                  "example": "any"
+                },
+                "location": {
+                  "example": "any"
+                },
+                "organizer": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "attendeesLimit": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
+        "tags": [
+          "events"
+        ],
         "description": "",
         "parameters": [
           {

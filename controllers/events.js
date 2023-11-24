@@ -4,6 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 const getAllEvents = async (req, res) => {
+     //#swagger.tags=['events']
     try {
         const result = await mongodb.getDatabase().db().collection('events').find().toArray();
         res.setHeader('Content-Type', 'application/json');
@@ -14,6 +15,7 @@ const getAllEvents = async (req, res) => {
 };
 
 const getSingleEvent = async (req, res) => {
+       //#swagger.tags=['events']
     try {
         const eventId = new ObjectId(req.params.id);
         const result = await mongodb.getDatabase().db().collection('events').find({ _id: eventId }).toArray();
@@ -31,6 +33,7 @@ const getSingleEvent = async (req, res) => {
 };
 
 const createEvent = async (req, res) => {
+       //#swagger.tags=['events']
     const event = {
         eventName: req.body.eventName,
         date: req.body.date,
@@ -50,6 +53,7 @@ const createEvent = async (req, res) => {
 };
 
 const updateEvent = async (req, res) => {
+       //#swagger.tags=['events']
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid event id to update an event.');
         return;
@@ -75,6 +79,7 @@ const updateEvent = async (req, res) => {
 };
 
 const deleteEvent = async (req, res) => {
+       //#swagger.tags=['events']
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid event id to delete an event.');
         return;
