@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const mongodb = require('./data/database');
 const app = express();
@@ -46,7 +47,7 @@ app.use(bodyParser.json())
 
 
 passport.use(new GitHubStrategy ({
-    clientID: process.env.ceea9980a006d423a65a,
+    clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: process.env.GITHUB_CALLBACK_URL
 },
