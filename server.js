@@ -46,7 +46,7 @@ app.use(bodyParser.json())
 
 
 passport.use(new GitHubStrategy ({
-    clientID: process.env.GITHUB_CLIENT_ID,
+    clientID: process.env.ceea9980a006d423a65a,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: process.env.GITHUB_CALLBACK_URL
 },
