@@ -45,6 +45,10 @@ app.use(bodyParser.json())
 .use(cors({origin: '*'}))
 .use('/', require("./routes/index.js"));
 
+console.log('GitHub Client ID:', process.env.GITHUB_CLIENT_ID);
+console.log('GitHub Client Secret:', process.env.GITHUB_CLIENT_SECRET);
+console.log('GitHub Callback URL:', process.env.GITHUB_CALLBACK_URL);
+
 
 passport.use(new GitHubStrategy ({
     clientID: process.env.GITHUB_CLIENT_ID,
