@@ -76,7 +76,7 @@ content-type: application/json
   "attendeesLimit": 40
 }
 
-###UPDATE EVENT
+##UPDATE EVENT
 
 PUT  http://localhost:3001/events/655e13ed39627812175d7ef2  HTTP/1.1
 content-type: application/json
